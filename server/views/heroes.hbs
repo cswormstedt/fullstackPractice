@@ -1,0 +1,36 @@
+<h1>Batman Heroes</h1>
+
+<form action="/heroes" method="POST">
+
+	<input type="text" name="name" placeholder="Name"/>
+	<input type="text" name="movie" placeholder="Movie"/>
+	<input type="text" name="power" placeholder="Super Power"/>
+	<input type="text" name="height" placeholder="Height"/>
+	<input type="submit" name="Submit">
+
+
+</form><br>
+<table border= "1">
+	{{#each heroesArray }}
+	<tr>
+		<td>
+			{{this.name}}
+		</td>
+		<td>
+			{{this.movie}}
+		</td>
+		<td>
+			{{this.power}}
+		</td>
+		<td>
+			{{this.height}}
+		</td>
+		<td>
+			EDIT
+		</td>
+		<td>
+			DELETE
+		</td>
+	</tr>
+	{{/each}}
+</table>

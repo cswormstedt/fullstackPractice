@@ -1,15 +1,15 @@
 var express = require('express');
 var router 	= express.Router();
+var Villain = require('../models/Villains.js');
 
-
-router.get('/villains', function(req, res){
+router.get('/', function(req, res){
 	Villain.find(function(err, villains){
 		console.log(villains);
-	res.render('home', {villainsArray: villains});
+	res.render('villains', {villainsArray: villains});
 	});
 });
 
-router.post('/villains', function(req, res){
+router.post('/', function(req, res){
 	var name   = req.body.name;
 	var movie  = req.body.movie;
 	var power  = req.body.power;
@@ -21,7 +21,6 @@ router.post('/villains', function(req, res){
 								height: height});
 	villains.save();
 	res.redirect('/villains')
-
-})
+});
 
 module.exports = router;
