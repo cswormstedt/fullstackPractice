@@ -4,7 +4,9 @@ var server  = require('http').createServer(app);
 var bodyParser = require('body-parser');
 var path	= require('path');
 var mongoose = require('mongoose');
+
 require('./db/db.js');
+var Villain = require('./models/Villains.js');
 
 app.use(bodyParser.urlencoded({extended: true}));
 
