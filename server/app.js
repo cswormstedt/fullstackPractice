@@ -16,13 +16,18 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 
+app.get('/villains', function(req, res){
+	res.render('home', {villainsArray: villains});
+});
+
+app.post('/villains', function(req, res){
+	var name   = req.body.name;
+	var movie  = req.body.movie;
+	var power  = req.body.power;
+	var height = req.body.height;
 
 
-
-
-
-
-
+})
 
 
 server.listen(3000, function(){
