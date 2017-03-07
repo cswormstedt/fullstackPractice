@@ -1,6 +1,6 @@
 <h1>Batman Villains</h1>
 
-<form action="" method="POST">
+<form action="/villains" method="POST">
 
 	<input type="text" name="name" placeholder="Name"/>
 	<input type="text" name="movie" placeholder="Movie"/>
@@ -11,19 +11,19 @@
 
 </form><br>
 <table border= "1">
-{{!-- 	{{ #each}} --}}
+	{{#each villainsArray }}
 	<tr>
 		<td>
-			{{!-- {{ this.name}} --}}
+			{{this.name}}
 		</td>
 		<td>
-			{{!-- {{ this.movie}} --}}
+			{{this.movie}}
 		</td>
 		<td>
-			{{!-- {{ this.power}} --}}
+			{{this.power}}
 		</td>
 		<td>
-			{{!-- {{this.height}} --}}
+			{{this.height}}
 		</td>
 		<td>
 			EDIT
@@ -32,5 +32,5 @@
 			DELETE
 		</td>
 	</tr>
-	{{!-- {{/each}} --}}
+	{{/each}}
 </table>
