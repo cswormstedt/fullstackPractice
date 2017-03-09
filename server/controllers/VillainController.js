@@ -10,17 +10,40 @@ router.get('/', function(req, res){
 });
 
 router.post('/', function(req, res){
-	var name   = req.body.name;
-	var movie  = req.body.movie;
-	var power  = req.body.power;
-	var height = req.body.height;
+	var villain = new Villain({ name:   req.body.name,
+								movie:  req.body.movie,
+								power:  req.body.power,
+								height: req.body.height});
+	villain.save();
+	response.redirect('/villains');
+});
 
-	var villains = new Villain({ name: name,
-								movie: movie,
-								power: power,
-								height: height});
-	villains.save();
-	res.redirect('/villains')
+router.patch('/:id', function(req, res){
+	var id = req.params.id;
+	var newInfo = req.body;
+	
+	Villain.findById(id, function(err, villain){
+		villain.name   = newInfo.name;
+		villain.movie  = newInfo.movie;
+		villain.power  = newInfo.power;
+		villain.height = newInfo.height;
+		
+		villain.save();
+		
+	// Villain.create({})
+		
+		res.send("success");
+	});
+});
+
+//.../:id /:whatever is called a wildcard..
+router.delete('/:id', function(req, res){
+	var id = req.params.id;
+	console.log("deleted " + id);
+	Villain.findById(id, function(err, villain){//this grabs the specific thing we are looking for
+		villain.remove();//this removes it
+		res.send("success");
+	});
 });
 
 module.exports = router;

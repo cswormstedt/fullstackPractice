@@ -9,18 +9,19 @@ router.get('/', function(req, res){
 	});
 });
 
-router.post('/', function(req, res){
-	var name   = req.body.name;
-	var movie  = req.body.movie;
-	var power  = req.body.power;
-	var height = req.body.height;
-
-	var heroes = new Heroes({ name: name,
-								movie: movie,
-								power: power,
-								height: height});
+router.post('/:id', function(req, res){
+	var heroes = new Heroes({   name:   req.body.name,
+								movie:  req.body.movie,
+								power:  req.body.power,
+								height: req.body.height});
 	heroes.save();
 	res.redirect('/heroes')
 });
+	
 
+	// var id = req.params.id;
+	// var newInfo = req.body;
+
+	// Heroes.findById(id, function(err, villain){
+		
 module.exports = router;

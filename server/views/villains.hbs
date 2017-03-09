@@ -10,26 +10,31 @@
 
 
 </form><br>
-<table border= "1">
-	{{#each villainsArray }}
-	<tr>
+
+<table>
+	{{#each villainsArray}}
+	<tr data-id="{{ this.id }}" data-index="{{@index}}">
 		<td>
-			{{this.name}}
+			<input type="text" value="{{ this.name }}" class="name"/>
 		</td>
 		<td>
-			{{this.movie}}
+			<input type="text" value="{{ this.movie }}" class="movie"/>
 		</td>
 		<td>
-			{{this.power}}
+			<input type="text" value="{{ this.power }}" class="power"/>
 		</td>
 		<td>
-			{{this.height}}
+			<input type="text" value="{{ this.height }}" class="height"/>
 		</td>
 		<td>
-			EDIT
+			<button class="edit">
+			SAVE
+			</button>
 		</td>
 		<td>
+			<button class="delete">
 			DELETE
+			</button>
 		</td>
 	</tr>
 	{{/each}}
